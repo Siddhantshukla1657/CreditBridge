@@ -1,0 +1,48 @@
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/models:/app/models
+      - ./backend/data:/app/data
+    env_file:
+      - ./backend/.env.dev
+    networks:
+      - creditbridge
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    networks:
+      - creditbridge
+
+  # ── Production profile only ────────────────────────────────────────
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: credituser
+      POSTGRES_PASSWORD: creditpass
+      POSTGRES_DB: creditbridge
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - creditbridge
+    profiles:
+      - prod
+
+networks:
+  creditbridge:
+    driver: bridge
+
+volumes:
+  pg_data:
