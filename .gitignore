@@ -1,0 +1,62 @@
+# Ignore environment files containing secrets
+# Ignore developer and production env files specifically
+backend/.env.dev
+backend/.env.prod
+# Keep the example file in the repository: backend/.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Editor
+.vscode/# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment local files
+.env
+.env.local
+.env.dev
+.env.prod
+.env.*
+!.env.example
+
+
+# Data and Models
+data/raw/*
+!data/raw/.gitkeep
+data/synthetic/*.parquet
+data/processed/*.parquet
+models/*
+!models/.gitkeep
+mlruns/
+backend/data/raw/*
+backend/data/processed/*
+backend/data/synthetic/*.parquet
+backend/models/*
+backend/mlruns/
+
+# Testing
+.pytest_cache/
+htmlcov/
+.cov/
+.coverage
+
+# Frontend/Node
+node_modules/
+frontend/dist/
+frontend/node_modules/
+.eslintcache
+
+# OS files
+.DS_Store
+Thumbs.db
+score_cache.db
