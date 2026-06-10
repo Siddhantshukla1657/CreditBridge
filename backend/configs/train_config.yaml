@@ -1,0 +1,60 @@
+# CreditBridge Training Configuration
+
+data:
+  num_profiles: 80000
+  random_seed: 42
+  raw_path: "data/raw"
+  synthetic_output_path: "data/synthetic/profiles.parquet"
+  processed_output_path: "data/processed/features.parquet"
+
+model:
+  target: "default_label"
+  test_size: 0.2
+  random_state: 42
+  smote_k_neighbors: 5
+  
+  # XGBoost Hyperparameters
+  output_path: "models/xgb_v1.pkl"
+
+  xgb_params:
+    n_estimators: 500
+    max_depth: 6
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    eval_metric: "auc"
+    use_label_encoder: false
+    random_state: 42
+    
+  # Monotone constraints mapping for feature monotonicity
+  # 1 = positive correlation with creditworthiness (lower default probability)
+  # -1 = negative correlation with creditworthiness (higher default probability)
+  # In XGBoost, if default_label is 1 (defaulted), then:
+  # positive impact on score (lower default risk) -> -1 constraint on default probability
+  # negative impact on score (higher default risk) -> 1 constraint on default probability
+  monotone_constraints:
+    upi_consistency_score: -1
+    utility_streak_length: -1
+    utility_days_before_due_avg: 1
+    upi_failed_rate: 1
+    utility_lapse_count_12m: 1
+    mobile_recharge_streak: -1
+    mobile_lapse_count: 1
+
+calibration:
+  method: "sigmoid"
+  cv_splits: 5
+
+fairness:
+  protected_attributes:
+    - "gender"
+    - "geography"
+    - "income_proxy"
+  disparity_threshold: 0.10  # Max 10% deviation allowed
+  reference_groups:
+    gender: "M"
+    geography: "urban"
+    income_proxy: "high"
+
+explainability:
+  num_top_factors: 3

@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment files containing secrets
+.env
+.env.local
+.env.*.local
+.env.dev
+.env.prod
+
+# Keep the example file in the repository
+!.env.example
+
+# Data and Models
+data/raw/*
+!data/raw/.gitkeep
+data/synthetic/*.parquet
+data/processed/*.parquet
+models/*
+!models/.gitkeep
+mlruns/
+
+# Testing
+.pytest_cache/
+htmlcov/
+.cov/
+.coverage
+
+# OS files
+.DS_Store
+Thumbs.db
+score_cache.db
