@@ -26,6 +26,8 @@ data/synthetic/*.parquet
 data/processed/*.parquet
 models/*
 !models/.gitkeep
+!models/xgb_v1.pkl
+!models/fairness_report.json
 mlruns/
 
 # Testing

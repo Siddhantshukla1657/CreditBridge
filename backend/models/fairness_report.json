@@ -1,0 +1,82 @@
+{
+    "disparity_threshold": 0.1,
+    "violations": [
+        {
+            "attribute": "semi-urban",
+            "group": "geography",
+            "metric": "FPR Parity",
+            "value": 1.1038529002600859,
+            "status": "FAIL"
+        },
+        {
+            "attribute": "low",
+            "group": "income_proxy",
+            "metric": "Equal Opportunity",
+            "value": 0.8333598668249447,
+            "status": "FAIL"
+        },
+        {
+            "attribute": "low",
+            "group": "income_proxy",
+            "metric": "FPR Parity",
+            "value": 0.5431682915251762,
+            "status": "FAIL"
+        },
+        {
+            "attribute": "mid",
+            "group": "income_proxy",
+            "metric": "FPR Parity",
+            "value": 0.8641819749320248,
+            "status": "FAIL"
+        }
+    ],
+    "groups": {
+        "gender": {
+            "F": {
+                "demographic_parity_disparity": 1.0,
+                "equal_opportunity_disparity": 0.9929641864815462,
+                "fpr_parity_disparity": 0.9268269071452907
+            },
+            "M": {
+                "demographic_parity_disparity": 1.0,
+                "equal_opportunity_disparity": 1.0,
+                "fpr_parity_disparity": 1.0
+            }
+        },
+        "geography": {
+            "rural": {
+                "demographic_parity_disparity": 1.0,
+                "equal_opportunity_disparity": 0.9831238823370709,
+                "fpr_parity_disparity": 1.0404110892596588
+            },
+            "semi-urban": {
+                "demographic_parity_disparity": 1.0,
+                "equal_opportunity_disparity": 0.990260239258563,
+                "fpr_parity_disparity": 1.1038529002600859
+            },
+            "urban": {
+                "demographic_parity_disparity": 1.0,
+                "equal_opportunity_disparity": 1.0,
+                "fpr_parity_disparity": 1.0
+            }
+        },
+        "income_proxy": {
+            "high": {
+                "demographic_parity_disparity": 1.0,
+                "equal_opportunity_disparity": 1.0,
+                "fpr_parity_disparity": 1.0
+            },
+            "low": {
+                "demographic_parity_disparity": 1.0,
+                "equal_opportunity_disparity": 0.8333598668249447,
+                "fpr_parity_disparity": 0.5431682915251762
+            },
+            "mid": {
+                "demographic_parity_disparity": 1.0,
+                "equal_opportunity_disparity": 0.962685973270689,
+                "fpr_parity_disparity": 0.8641819749320248
+            }
+        }
+    },
+    "passed": false
+}

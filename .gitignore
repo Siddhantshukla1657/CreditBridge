@@ -37,11 +37,15 @@ data/synthetic/*.parquet
 data/processed/*.parquet
 models/*
 !models/.gitkeep
+!models/xgb_v1.pkl
+!models/fairness_report.json
 mlruns/
 backend/data/raw/*
 backend/data/processed/*
 backend/data/synthetic/*.parquet
 backend/models/*
+!backend/models/xgb_v1.pkl
+!backend/models/fairness_report.json
 backend/mlruns/
 
 # Testing
