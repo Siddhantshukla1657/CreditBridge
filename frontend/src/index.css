@@ -1,0 +1,463 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #F5F0E8;
+  --color-cream-dark: #EDE7D9;
+  --color-cream-deeper: #E0D9CC;
+  --color-ink: #0A0A0A;
+  --color-ink-soft: #2A2A2A;
+  --color-ink-muted: #5A5A5A;
+  --color-blue: #0066FF;
+  --color-blue-dark: #0047B3;
+  --color-blue-pale: #CCE0FF;
+  --color-prime: #00C853;
+  --color-nearprime: #69F0AE;
+  --color-subprime: #FFD740;
+  --color-highrisk: #FF6D00;
+  --color-decline: #D50000;
+  --color-positive: #00C853;
+  --color-negative: #D50000;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  --shadow-brutal: 4px 4px 0 #0A0A0A;
+  --shadow-brutal-lg: 6px 6px 0 #0A0A0A;
+  --shadow-brutal-xl: 8px 8px 0 #0A0A0A;
+  --shadow-brutal-blue: 4px 4px 0 #0066FF;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+/* ── Neobrutalist base box ── */
+.brutal-box {
+  background: var(--color-cream-dark);
+  border: 2.5px solid var(--color-ink);
+  box-shadow: var(--shadow-brutal);
+  border-radius: 0;
+  transition: box-shadow 80ms linear, transform 80ms linear;
+}
+
+.brutal-box:hover {
+  box-shadow: var(--shadow-brutal-lg);
+  transform: translate(-2px, -2px);
+}
+
+.brutal-box-xl {
+  background: var(--color-cream-dark);
+  border: 2.5px solid var(--color-ink);
+  box-shadow: var(--shadow-brutal-xl);
+  border-radius: 0;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-blue);
+  color: var(--color-cream);
+  border: 2.5px solid var(--color-ink);
+  box-shadow: 4px 4px 0 var(--color-ink);
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 80ms linear;
+  border-radius: 0;
+}
+
+.btn-primary:hover {
+  background: var(--color-blue-dark);
+  box-shadow: 6px 6px 0 var(--color-ink);
+  transform: translate(-2px, -2px);
+}
+
+.btn-primary:active {
+  box-shadow: 0 0 0 var(--color-ink);
+  transform: translate(4px, 4px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  border: 2.5px solid var(--color-ink);
+  box-shadow: 4px 4px 0 var(--color-ink);
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 80ms linear;
+  border-radius: 0;
+}
+
+.btn-secondary:hover {
+  background: var(--color-cream-dark);
+  box-shadow: 6px 6px 0 var(--color-ink);
+  transform: translate(-2px, -2px);
+}
+
+.btn-secondary:active {
+  box-shadow: 0 0 0 var(--color-ink);
+  transform: translate(4px, 4px);
+}
+
+/* ── Inputs ── */
+.brutal-input {
+  background: var(--color-cream-deeper);
+  border: 2.5px solid var(--color-ink);
+  box-shadow: none;
+  border-radius: 0;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-ink);
+  width: 100%;
+  outline: none;
+  transition: box-shadow 80ms linear, border-color 80ms linear;
+}
+
+.brutal-input:focus {
+  border-color: var(--color-blue);
+  box-shadow: 3px 3px 0 var(--color-blue);
+}
+
+.brutal-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin-bottom: 6px;
+}
+
+/* ── Table ── */
+.brutal-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.brutal-table th {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.brutal-table td {
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--color-ink-soft);
+}
+
+.brutal-table tr:nth-child(even) td {
+  background: var(--color-cream-deeper);
+}
+
+.brutal-table tr:nth-child(odd) td {
+  background: var(--color-cream);
+}
+
+.brutal-table tr:hover td {
+  background: var(--color-blue-pale);
+  cursor: pointer;
+}
+
+.brutal-table tr.selected td {
+  border-left: 4px solid var(--color-blue);
+}
+
+/* ── Navbar ── */
+.navbar {
+  background: var(--color-cream);
+  border-bottom: 2.5px solid var(--color-ink);
+  padding: 0 32px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ── Animations ── */
+@keyframes slideInRight {
+  from {
+    transform: translateX(32px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-slide-right {
+  animation: slideInRight 200ms ease-out;
+}
+
+.animate-slide-up {
+  animation: slideInUp 200ms ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 300ms ease-out;
+}
+
+.animate-count-up {
+  animation: countUp 600ms ease-out;
+}
+
+.stagger-1 {
+  animation-delay: 0ms;
+}
+
+.stagger-2 {
+  animation-delay: 80ms;
+}
+
+.stagger-3 {
+  animation-delay: 160ms;
+}
+
+/* ── Force Plot Chart ── */
+.force-plot-container {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-ink);
+}
+
+.force-plot-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.force-plot-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.force-plot-subtitle {
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+}
+
+.force-plot-score-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: var(--color-cream-deeper);
+  border: 1.5px solid var(--color-ink);
+}
+
+.force-plot-score-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.force-plot-score-title {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-ink-muted);
+}
+
+.force-plot-score-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.force-plot-score-value.neutral { color: var(--color-ink); }
+.force-plot-score-value.risk-higher { color: #D50000; }
+.force-plot-score-value.risk-lower { color: #00873A; }
+
+.force-plot-arrow {
+  font-size: 1.25rem;
+  color: var(--color-ink-muted);
+}
+
+.force-plot-bars-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;
+  gap: 0 8px;
+  align-items: start;
+}
+
+.force-plot-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.force-plot-col-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.negative-label { color: #00873A; text-align: right; }
+.positive-label { color: #D50000; }
+
+.force-plot-bars { display: flex; flex-direction: column; gap: 6px; }
+
+.negative-bars .force-bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.positive-bars .force-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.force-bar {
+  height: 18px;
+  border-radius: 0;
+  min-width: 4%;
+  flex-shrink: 0;
+}
+
+.negative-bar {
+  background: #00873A;
+  border: 1.5px solid #005A27;
+}
+
+.positive-bar {
+  background: #D50000;
+  border: 1.5px solid #8B0000;
+}
+
+.force-bar-label {
+  font-size: 0.6875rem;
+  color: var(--color-ink-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
+}
+
+.force-plot-baseline {
+  width: 2px;
+  background: var(--color-ink);
+  align-self: stretch;
+  min-height: 40px;
+}
+
+.force-plot-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 0.6875rem;
+  color: var(--color-ink-muted);
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--color-ink);
+}
+
+.negative-dot { background: #00873A; }
+.positive-dot { background: #D50000; }
+
+.force-plot-empty {
+  padding: 16px;
+  font-size: 0.8125rem;
+  color: var(--color-ink-muted);
+  text-align: center;
+  border: 1.5px dashed var(--color-ink-muted);
+}
